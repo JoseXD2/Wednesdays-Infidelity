@@ -96,6 +96,7 @@ class WeekData
 
 	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false)
 	{
+		#if windows
 		weeksList = [];
 		weeksLoaded.clear();
 		var directories:Array<String> = [Paths.getPreloadPath()];
@@ -126,7 +127,7 @@ class WeekData
 				}
 			}
 		}
-
+                #else
 		for (i in 0...directories.length)
 		{
 			var directory:String = directories[i] + 'weeks/';
@@ -153,7 +154,7 @@ class WeekData
 			}
 		}
 	}
-
+        #end
 	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int)
 	{
 		if (!weeksLoaded.exists(weekToCheck))
