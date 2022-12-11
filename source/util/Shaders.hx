@@ -46,14 +46,15 @@ class ChromaticAberrationShader extends FlxShader
         uniform vec2 gOffset;
         uniform vec2 bOffset;
 
-		vec4 offsetColor(vec2 offset)
+	vec4 offsetColor(vec2 offset)
         {
             return texture2D(bitmap, openfl_TextureCoordv.st - offset);
         }
 
-		void main()
-		{
-			vec4 base = texture2D(bitmap, openfl_TextureCoordv);
+	void main()
+	{
+            #pragma body
+	    vec4 base = texture2D(bitmap, openfl_TextureCoordv);
             base.r = offsetColor(rOffset).r;
             base.g = offsetColor(gOffset).g;
             base.b = offsetColor(bOffset).b;
@@ -254,6 +255,7 @@ class DistortionShader extends FlxShader
 
         void main()
         {
+                         #pragma body
 			if (working) {
 				vec2 uv = openfl_TextureCoordv;
 
@@ -449,6 +451,8 @@ class VHSShader extends FlxShader // i HATE shaders xd -lunar https://www.shader
 
 		void main()
         {
+                          #pragma body
+
 			vec2 uv = openfl_TextureCoordv.xy;   
 
 			for (float i = 0.0; i < 0.71; i += 0.1313)
