@@ -24,11 +24,11 @@ class Init extends FlxState
 	{
 		super.create();
 
-		#if cpp
+		#if windows
 		CppAPI.darkMode();
 		#end
 
-		#if cpp
+		#if windows
 		cpp.NativeGc.enable(true);
 		cpp.NativeGc.run(true);
 		#end
@@ -38,8 +38,6 @@ class Init extends FlxState
 		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
 
 		FlxG.autoPause = true;
-
-		Main.canToggleFullScreen = true;
 
 		PlayerSettings.reset();
 
