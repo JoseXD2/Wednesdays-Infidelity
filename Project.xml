@@ -80,7 +80,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="hxp" />
 	<haxelib name="flxanimate" />
-	<haxelib name="discord_rpc"/>
+	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="hxCodec"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
@@ -91,7 +91,7 @@
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 
-	<error value="Targets besides desktop are not supported" unless="desktop" />
+	<error value="Targets besides desktop are not supported" unless="android" />
 
 	<haxedef name="no-deprecation-warnings" />
 
