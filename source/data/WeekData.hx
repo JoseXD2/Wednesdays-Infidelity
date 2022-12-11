@@ -94,9 +94,10 @@ class WeekData
 		this.fileName = fileName;
 	}
 
+	#if windows
 	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false)
 	{
-		#if windows
+		
 		weeksList = [];
 		weeksLoaded.clear();
 		var directories:Array<String> = [Paths.getPreloadPath()];
